@@ -1,0 +1,122 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #444;
+}
+
+.header-info h2 {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Button Styles */
+.button-container {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addStudentBtn {
+    background-color: #28a745;
+    color: white;
+}
+
+#addStudentBtn:hover {
+    background-color: #218838;
+}
+
+#submitBtn {
+    background-color: #ffc107; /* Orange color for when it's enabled */
+    color: white;
+}
+
+/* Requirement 2b: Style for disabled submit button */
+#submitBtn.disabled-button {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+caption {
+    font-size: 1.2em;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #555;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+thead {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Zebra striping for better readability */
+tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #fff;
+}
+
+/* Requirement 2a & 11: Hide expandable rows by default */
+.expandable-row {
+    display: none;
+}
+
+.expandable-row td {
+    background-color: #e9f5ff;
+    padding-left: 50px;
+}
+
+/* Requirement 7a: Style for selected row (will be added by JS) */
+.selected-row {
+    background-color: yellow !important; /* Use !important to override other background styles */
+}
+
+/* Style for the arrow icon */
+.arrow {
+    cursor: pointer;
+    display: inline-block; /* 确保 span 能够包含 img */
+    vertical-align: middle; /* 垂直居中对齐 */
+}
