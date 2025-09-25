@@ -29,4 +29,37 @@ document.addEventListener('DOMContentLoaded', function() {
         selectAllCheckbox.checked = allCheckboxes.length > 0 && selectedCheckboxes.length === allCheckboxes.length;
     }
 
+    // --- UTILITY FUNCTION: 重新排序学生编号 (要求 5c) ---
+    // 在添加和删除操作后调用，确保编号是连续的
+    function reorderStudentNumbers() {
+        // 仅选择数据行（非可展开行）
+        const studentRows = tableBody.querySelectorAll('tr:not(.expandable-row)');
+        
+        studentRows.forEach((dataRow, index) => {
+            const studentNumber = index + 1; // 新的学生编号
+            const studentNameCell = dataRow.children[1]; // 学生姓名单元格
+            const teacherNameCell = dataRow.children[2]; // 老师姓名单元格
+            
+            // 更新学生姓名和老师姓名
+            studentNameCell.textContent = `Student ${studentNumber}`;
+            teacherNameCell.textContent = `Teacher ${studentNumber}`;
+            
+            // 找到并更新关联的可展开行内容
+            const expandableRow = dataRow.nextElementSibling;
+            if (expandableRow && expandableRow.classList.contains('expandable-row')) {
+                const detailCell = expandableRow.querySelector('td');
+                detailCell.textContent = `Details for Student ${studentNumber}: More information here...`;
+            }
+        });
+    }
+
+    // --- UTILITY FUNCTION: 获取下一个学生编号 ---
+    function getNextStudentNumber() {
+        const existingStudentRows = tableBody.querySelectorAll('tr:not(.expandable-row)');
+        // 现有行数 + 1 即为下一个编号
+        return existingStudentRows.length + 1;
+    }
+
+
+
 });
